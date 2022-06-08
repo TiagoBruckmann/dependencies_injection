@@ -20,8 +20,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-  final sessionManager = GetIt.I.get<SessionManager>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +31,8 @@ class _LoginPageState extends State<LoginPage> {
         child: ElevatedButton(
           child: const Text("Acessar"),
           onPressed: () {
+            final sessionManager = GetIt.I.get<SessionManager>();
+
             print("session.hashCode => ${sessionManager.hashCode}");
             sessionManager.user = User("Tiago B");
             Navigator.of(context).push(
