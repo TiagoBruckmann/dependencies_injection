@@ -9,9 +9,10 @@ void configureDependencies() {
 
   debugPrint("inicio da configuração de dependencias");
 
-  final sessionManager = SessionManager();
-  debugPrint("sessionManager configure => ${sessionManager.hashCode}");
-  GetIt.I.registerSingleton(sessionManager);
+  // GetIt.I.registerSingleton(SessionManager());
+
+  // apenas chama a sessao quando ela é chamada, economizando recursos do dispositivo, é chamado quando se tem estado, nesse caso o usuario
+  GetIt.I.registerLazySingleton(() => SessionManager());
 
   debugPrint("fim da configuração de dependencias");
 
