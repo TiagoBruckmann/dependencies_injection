@@ -4,6 +4,10 @@ import 'package:curso_getit/models/user.dart';
 // import dos repositorios
 import 'package:curso_getit/repositories/auth_repository.dart';
 
+// import dos pacotes
+import 'package:injectable/injectable.dart';
+
+@singleton
 class SessionManager {
 
   SessionManager(this.authRepository) {

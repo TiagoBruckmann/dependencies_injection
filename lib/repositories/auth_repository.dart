@@ -4,10 +4,14 @@ import 'package:curso_getit/models/user.dart';
 // import dos dados da api
 import 'package:curso_getit/data_source/auth_remote_datasource.dart';
 
+// import dos pacotes
+import 'package:injectable/injectable.dart';
+
 abstract class AuthRepository {
   User? getCurrentUser();
 }
 
+@Injectable(as: AuthRepository)
 class ApiAuthRepository implements AuthRepository {
 
   ApiAuthRepository(this.remoteDatasource);
@@ -21,6 +25,7 @@ class ApiAuthRepository implements AuthRepository {
 
 }
 
+// @Injectable(as: AuthRepository)
 class FirebaseAuthRepository implements AuthRepository {
 
   @override

@@ -1,27 +1,19 @@
-// import das sessoes
-import 'package:curso_getit/data_source/auth_remote_datasource.dart';
-import 'package:curso_getit/manegers/session_manager.dart';
-import 'package:curso_getit/repositories/auth_repository.dart';
-import 'package:flutter/material.dart';
-
 // import dos pacotes
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
+import 'package:injectable/injectable.dart';
 
-void configureDependencies() {
+import 'injection.config.dart';
 
-  debugPrint("inicio da configuração de dependencias");
+final getIt = GetIt.I;
 
-  const firebaseUser = true;
+@InjectableInit()
+void configureDependencies() => $initGetIt(getIt);
 
-  GetIt.I.registerFactory(() => AuthRemoteDatasource());
-  if ( firebaseUser == true ) {
-    GetIt.I.registerFactory<AuthRepository>(() => FirebaseAuthRepository());
-  } else {
-    GetIt.I.registerFactory<AuthRepository>(() => ApiAuthRepository(GetIt.I.get()));
-  }
+@module
+abstract class RegisterModules {
 
-  GetIt.I.registerSingleton(SessionManager(GetIt.I.get()));
-
-  debugPrint("fim da configuração de dependencias");
+  @singleton
+  final storage = const FlutterSecureStorage();
 
 }
