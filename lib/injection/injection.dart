@@ -8,8 +8,9 @@ import 'injection.config.dart';
 final getIt = GetIt.I;
 
 @InjectableInit()
-void configureDependencies() => $initGetIt(getIt);
+void configureDependencies() => $initGetIt(getIt, environment: "dev");
 
+/*
 @module
 abstract class RegisterModules {
 
@@ -17,3 +18,4 @@ abstract class RegisterModules {
   final storage = const FlutterSecureStorage();
 
 }
+*/

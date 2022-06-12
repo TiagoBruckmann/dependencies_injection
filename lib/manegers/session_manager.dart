@@ -7,7 +7,7 @@ import 'package:curso_getit/repositories/auth_repository.dart';
 // import dos pacotes
 import 'package:injectable/injectable.dart';
 
-@singleton
+@lazySingleton
 class SessionManager {
 
   SessionManager(this.authRepository) {

@@ -11,7 +11,7 @@ abstract class AuthRepository {
   User? getCurrentUser();
 }
 
-@Injectable(as: AuthRepository)
+@Injectable(as: AuthRepository, env: ["prod", "homolog", "dev"])
 class ApiAuthRepository implements AuthRepository {
 
   ApiAuthRepository(this.remoteDatasource);
@@ -25,7 +25,7 @@ class ApiAuthRepository implements AuthRepository {
 
 }
 
-// @Injectable(as: AuthRepository)
+@Injectable(as: AuthRepository, env: ["local"])
 class FirebaseAuthRepository implements AuthRepository {
 
   @override

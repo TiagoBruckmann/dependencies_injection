@@ -10,7 +10,7 @@ import 'package:curso_getit/models/user.dart';
 class AuthRemoteDatasource {
 
   User? getCurrentUser() {
-    Future<void> token = getIt<FlutterSecureStorage>().read(key: "token");
+    // Future<void> token = getIt<FlutterSecureStorage>().read(key: "token");
     // token ??= getIt<FlutterSecureStorage>().write(key: "token", value: "EuSouALenda!");
 
     return User("Tiago B");
