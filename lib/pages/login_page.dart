@@ -1,4 +1,6 @@
 // imports nativos
+import 'package:curso_getit/injection/injection.dart';
+import 'package:curso_getit/manegers/session_manager.dart';
 import 'package:flutter/material.dart';
 
 // import das telas
@@ -21,15 +23,33 @@ class _LoginPageState extends State<LoginPage> {
       ),
 
       body: Center(
-        child: ElevatedButton(
-          child: const Text("Acessar"),
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (builder) => const HomePage(),
-              ),
-            );
-          },
+        child: Column(
+          children: [
+
+            ElevatedButton(
+              child: const Text("Acessar"),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (builder) => const HomePage(),
+                  ),
+                );
+              },
+            ),
+
+            ElevatedButton(
+              child: const Text("Remover sessão"),
+              onPressed: () {
+                // getIt.unregister<SessionManager>();
+                // getIt.registerSingleton(getIt());
+
+                getIt.resetLazySingleton<SessionManager>();
+
+                // getIt.reset();
+              },
+            ),
+
+          ],
         ),
       ),
 

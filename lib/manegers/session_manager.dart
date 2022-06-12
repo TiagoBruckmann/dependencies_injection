@@ -22,4 +22,10 @@ class SessionManager {
   void _getCurrentUser() {
     user = authRepository.getCurrentUser();
   }
+
+  @disposeMethod
+  void dispose() {
+    print("dispose");
+  }
+
 }

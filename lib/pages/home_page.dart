@@ -7,6 +7,8 @@ import 'package:curso_getit/manegers/session_manager.dart';
 // import dos pacotes
 import 'package:get_it/get_it.dart';
 
+import '../injection/injection.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -16,7 +18,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  final sessionManager = GetIt.I.get<SessionManager>();
+  final sessionManager = getIt.get<SessionManager>();
 
   @override
   Widget build(BuildContext context) {
